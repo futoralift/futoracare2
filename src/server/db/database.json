@@ -1,0 +1,26 @@
+{
+  "tenants": [],
+  "subscriptions": [],
+  "staffMembers": [
+    {
+      "id": "sa_madhur",
+      "tenantId": "platform",
+      "name": "Madhur",
+      "email": "madhur@futoragroup.com",
+      "phone": "+91 99999 88888",
+      "role": "super_admin",
+      "isActive": true,
+      "createdAt": "2024-01-01",
+      "avatarInitials": "MF"
+    }
+  ],
+  "patients": [],
+  "appointments": [],
+  "whatsappThreads": [],
+  "voiceCalls": [],
+  "labReports": [],
+  "feedback": [],
+  "workflows": [],
+  "auditLogs": [],
+  "paymentTransactions": []
+}
