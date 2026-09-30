@@ -1,6 +1,54 @@
 {
-  "tenants": [],
-  "subscriptions": [],
+  "tenants": [
+    {
+      "id": "t_1790777680524",
+      "name": "dsfefw",
+      "branch": "fefefewfewfw",
+      "city": "fewfewefw",
+      "beds": 100,
+      "doctors": 30,
+      "plan": "growth",
+      "status": "trial",
+      "owner": {
+        "id": "o_t_1790777680524",
+        "name": "fewefwfw",
+        "email": "fewfewf@ffdwvd.feww",
+        "phone": "321342342123",
+        "designation": "Managing Director"
+      },
+      "createdAt": "2026-09-30"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "sub_t_1790777680524",
+      "tenantId": "t_1790777680524",
+      "plan": "growth",
+      "status": "trial",
+      "billingCycle": "monthly",
+      "pricePerCycle": 8000,
+      "startDate": "2026-09-30",
+      "nextRenewal": "2026-10-07",
+      "totalPaid": 0,
+      "isTrial": true,
+      "trialEndsAt": "2026-10-07",
+      "autopayEnabled": true,
+      "autopayStatus": "active",
+      "autopayMethod": "upi",
+      "whatsappAiEnabled": false,
+      "transactions": [
+        {
+          "id": "txn_1790777680537_xkuww",
+          "amount": 0,
+          "method": "upi",
+          "status": "success",
+          "txnRef": "MANDATE_AUTH_1790777680537",
+          "date": "2026-09-30",
+          "plan": "growth"
+        }
+      ]
+    }
+  ],
   "staffMembers": [
     {
       "id": "sa_madhur",
@@ -12,6 +60,17 @@
       "isActive": true,
       "createdAt": "2024-01-01",
       "avatarInitials": "MF"
+    },
+    {
+      "id": "staff_owner_t_1790777680524",
+      "tenantId": "t_1790777680524",
+      "name": "fewefwfw",
+      "email": "fewfewf@ffdwvd.feww",
+      "phone": "321342342123",
+      "role": "hospital_owner",
+      "isActive": true,
+      "createdAt": "2026-09-30",
+      "avatarInitials": "F"
     }
   ],
   "patients": [],

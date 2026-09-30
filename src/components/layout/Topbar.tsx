@@ -108,12 +108,14 @@ export function Topbar() {
       <button
         onClick={() => setOmniOpen(true)}
         style={{
-          flex: 1,
+          flex: '0 1 380px',
+          minWidth: '160px',
           maxWidth: '420px',
+          height: '36px',
           display: 'flex',
           alignItems: 'center',
           gap: '0.625rem',
-          padding: '0.5rem 0.875rem',
+          padding: '0 0.875rem',
           background: 'var(--bg-elevated)',
           border: '1px solid var(--border)',
           borderRadius: '8px',
@@ -121,13 +123,18 @@ export function Topbar() {
           color: 'var(--text-muted)',
           fontSize: '0.875rem',
           transition: 'border-color 0.15s, box-shadow 0.15s',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          flexShrink: 1,
         }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--primary-muted)'; (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 0 0 3px rgba(37,99,235,0.08)'; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLButtonElement).style.boxShadow = 'none'; }}
       >
-        <Search size={15} />
-        <span>Search patients, doctors, actions…</span>
-        <span style={{ marginLeft: 'auto', fontSize: '0.72rem', background: 'var(--border)', color: 'var(--text-muted)', borderRadius: '4px', padding: '1px 5px', fontWeight: 600 }}>
+        <Search size={15} style={{ flexShrink: 0 }} />
+        <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1, textAlign: 'left' }}>
+          Search patients, doctors, actions…
+        </span>
+        <span style={{ marginLeft: 'auto', flexShrink: 0, fontSize: '0.72rem', background: 'var(--border)', color: 'var(--text-muted)', borderRadius: '4px', padding: '1px 5px', fontWeight: 600, whiteSpace: 'nowrap' }}>
           {isMac ? '⌘K' : 'Ctrl+K'}
         </span>
       </button>
