@@ -2,7 +2,7 @@
 
 import { useUIStore } from '@/store/uiStore';
 import { Bell, Search, Sun, Moon, ArrowLeft, Clock, CreditCard, Lock, CheckCircle } from 'lucide-react';
-import { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useEffect, useMemo, useSyncExternalStore } from 'react';
 import { useTenants } from '@/hooks/useTenants';
 import { useAppointments } from '@/hooks/useAppointments';
 import { useLabReports } from '@/hooks/useLabReports';
@@ -53,11 +53,11 @@ export function Topbar() {
   }, [labReports, appointments]);
 
   const notifRef = useRef<HTMLDivElement>(null);
-  const [isMac, setIsMac] = useState(false);
-
-  useEffect(() => {
-    setIsMac(/Mac|iPod|iPhone|iPad/.test(navigator.userAgent));
-  }, []);
+  const isMac = useSyncExternalStore(
+    () => () => {},
+    () => /Mac|iPod|iPhone|iPad/.test(navigator.userAgent),
+    () => false
+  );
 
   // Click-outside listener for notifications dropdown
   useEffect(() => {

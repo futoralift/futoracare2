@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useUIStore } from '@/store/uiStore';
 import { Shield, Lock, ArrowRight, Eye, EyeOff, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { toast } from '@/store/toastStore';
@@ -294,7 +295,7 @@ export default function AdminPortalPage() {
 
         {/* Footer info */}
         <div style={{ marginTop: '2rem', textAlign: 'center', borderTop: '1px solid rgba(148, 163, 184, 0.15)', paddingTop: '1.25rem' }}>
-          <a
+          <Link
             href="/"
             style={{
               color: '#94a3b8',
@@ -306,7 +307,7 @@ export default function AdminPortalPage() {
             onMouseLeave={(e) => (e.currentTarget.style.color = '#94a3b8')}
           >
             ← Return to Hospital Portal
-          </a>
+          </Link>
         </div>
       </div>
     </div>

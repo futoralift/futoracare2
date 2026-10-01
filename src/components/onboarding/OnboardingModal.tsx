@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useUIStore } from '@/store/uiStore';
 import { SubscriptionPlan, BillingCycle, PaymentMethod, PLAN_PRICES, PLAN_LABELS } from '@/types';
@@ -27,10 +27,6 @@ const PLAN_FEATURES: Record<SubscriptionPlan, string[]> = {
 export function OnboardingModal({ initialPlan = 'growth', billingCycle: initBillingCycle = 'monthly', onClose }: Props) {
   const { loginAs, startTrial } = useUIStore();
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const [step, setStep] = useState<Step>('plan');
   const [isTrial, setIsTrial] = useState<boolean>(true); // Default to 7-Day Free Trial

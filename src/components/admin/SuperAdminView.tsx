@@ -227,7 +227,23 @@ export function SuperAdminView() {
 
   useEffect(() => {
     if (!isAuthorized) return;
-    loadData();
+    let isMounted = true;
+    Promise.all([
+      fetch('/api/superadmin/hospitals').then((r) => r.json()),
+      fetch('/api/superadmin/metrics').then((r) => r.json()),
+    ])
+      .then(([h, m]) => {
+        if (!isMounted) return;
+        setHospitals(h.data ?? []);
+        setMetrics(m.data ?? null);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        if (isMounted) setIsLoading(false);
+      });
+    return () => {
+      isMounted = false;
+    };
   }, [isAuthorized]);
 
   const handleExtendTrial = async (hospitalId: string) => {
