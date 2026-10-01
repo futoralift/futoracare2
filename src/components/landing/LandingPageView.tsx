@@ -10,7 +10,7 @@ import {
 import { OnboardingModal } from '@/components/onboarding/OnboardingModal';
 
 export function LandingPageView() {
-  const { setActiveView, theme, toggleTheme, loginAs } = useUIStore();
+  const { setActiveView, theme, toggleTheme, loginAs, startDemo } = useUIStore();
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [showOnboarding, setShowOnboarding] = useState(false);
 
@@ -102,11 +102,25 @@ export function LandingPageView() {
 
           <button
             className="btn-primary"
-            onClick={() => setShowOnboarding(true)}
-            style={{ borderRadius: '99px', padding: '0.55rem 1.25rem' }}
+            onClick={() => startDemo()}
+            style={{
+              borderRadius: '99px',
+              padding: '0.55rem 1.25rem',
+              background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+              fontWeight: 700,
+            }}
           >
-            <span>Start Free Trial</span>
-            <ArrowRight size={15} />
+            <Zap size={14} />
+            <span>Start Free Demo</span>
+          </button>
+
+          <button
+            className="btn-secondary"
+            onClick={() => setShowOnboarding(true)}
+            style={{ borderRadius: '99px', padding: '0.55rem 1.1rem', fontSize: '0.8125rem' }}
+          >
+            <span>Trial Setup</span>
           </button>
         </div>
       </nav>
@@ -165,22 +179,38 @@ export function LandingPageView() {
         </p>
 
         {/* CTA Group */}
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
           <button
             className="btn-primary"
-            onClick={() => setShowOnboarding(true)}
-            style={{ padding: '0.75rem 1.75rem', fontSize: '1rem', borderRadius: '12px' }}
+            onClick={() => startDemo()}
+            style={{
+              padding: '0.85rem 2rem',
+              fontSize: '1.05rem',
+              borderRadius: '12px',
+              background: 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
+              boxShadow: '0 10px 25px -5px rgba(37, 99, 235, 0.4)',
+              fontWeight: 800,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
           >
-            <span>Start Free Trial</span>
+            <Zap size={18} />
+            <span>Start Free Demo (Instant Access)</span>
             <ArrowRight size={18} />
           </button>
           <button
             className="btn-ghost"
-            onClick={() => scrollToSection('features')}
-            style={{ padding: '0.75rem 1.75rem', fontSize: '1rem', borderRadius: '12px' }}
+            onClick={() => setShowOnboarding(true)}
+            style={{ padding: '0.85rem 1.5rem', fontSize: '1rem', borderRadius: '12px' }}
           >
-            Explore AI Capabilities
+            Start 7-Day Free Trial
           </button>
+        </div>
+
+        <div style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Sparkles size={14} color="#10b981" />
+          <span>No login or credit card required • Instant access to live dashboard with sample hospital data</span>
         </div>
 
         {/* Trust Badges */}

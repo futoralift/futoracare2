@@ -25,7 +25,7 @@ const PLAN_FEATURES: Record<SubscriptionPlan, string[]> = {
 };
 
 export function OnboardingModal({ initialPlan = 'growth', billingCycle: initBillingCycle = 'monthly', onClose }: Props) {
-  const { loginAs, startTrial } = useUIStore();
+  const { loginAs, startTrial, startDemo } = useUIStore();
 
 
   const [step, setStep] = useState<Step>('plan');
@@ -114,6 +114,45 @@ export function OnboardingModal({ initialPlan = 'growth', billingCycle: initBill
       {/* STEP 1: Plan */}
       {step === 'plan' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {/* Instant Demo Shortcut */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1))',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
+            borderRadius: '12px',
+            padding: '12px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '12px',
+            flexWrap: 'wrap',
+          }}>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '0.875rem', color: 'var(--text-primary)' }}>
+                ⚡ Just want to test the dashboard?
+              </div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                Skip registration and jump straight into the full demo sandbox with sample records.
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                startDemo();
+                onClose();
+              }}
+              className="btn-primary"
+              style={{
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                whiteSpace: 'nowrap',
+                padding: '6px 14px',
+                fontSize: '0.8125rem',
+                fontWeight: 700,
+              }}
+            >
+              Start Free Demo
+            </button>
+          </div>
+
           {/* Trial vs Paid Toggle */}
           <div>
             <div style={{ fontWeight: 700, fontSize: '0.8125rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '8px' }}>

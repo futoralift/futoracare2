@@ -21,6 +21,7 @@ export function Topbar() {
     setActiveView,
     canAccess,
     isTrial,
+    isDemoMode,
     completePaymentAndUnlock,
     simulateTrialExpiry,
   } = useUIStore();
@@ -138,6 +139,46 @@ export function Topbar() {
           {isMac ? '⌘K' : 'Ctrl+K'}
         </span>
       </button>
+
+      {/* Demo Mode Sandbox Badge */}
+      {isDemoMode && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
+              padding: '3px 10px',
+              borderRadius: '99px',
+              background: '#ecfdf5',
+              border: '1px solid #a7f3d0',
+              color: '#065f46',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+            }}
+          >
+            ⚡ Demo Sandbox (Apex Hospital)
+          </span>
+          <button
+            onClick={async () => {
+              try {
+                await fetch('/api/demo/reset', { method: 'POST' });
+                window.location.reload();
+              } catch (_) {}
+            }}
+            className="btn-ghost"
+            style={{
+              padding: '2px 8px',
+              fontSize: '0.72rem',
+              border: '1px solid var(--border)',
+              borderRadius: '6px',
+            }}
+            title="Reset demo data back to clean sample state"
+          >
+            ↺ Reset Demo
+          </button>
+        </div>
+      )}
 
       {/* 7-Day Trial Badge & Actions */}
       {isAuthenticated && isTrial && (

@@ -7,7 +7,7 @@ import { Topbar } from './Topbar';
 import { ToastContainer } from '@/components/ui/Toast';
 import { OmniModal } from '@/components/modals/OmniModal';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
-import { Lock, CreditCard, AlertTriangle } from 'lucide-react';
+import { Lock, CreditCard, AlertTriangle, Sparkles } from 'lucide-react';
 import { PLAN_PRICES, PLAN_LABELS } from '@/types';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -20,6 +20,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     subscriptionPlan,
     completePaymentAndUnlock,
     setActiveView,
+    startDemo,
   } = useUIStore();
 
   // Apply theme class to <html>
@@ -122,7 +123,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // Paywall — user not authenticated or subscription lapsed
+  // Paywall / Auth barrier — offer instant 1-click Free Demo or Start Free Trial
   if (!isAuthenticated) {
     return (
       <div style={{
@@ -132,28 +133,45 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       }}>
         <div style={{
           background: 'var(--bg-surface)', border: '1px solid var(--border)',
-          borderRadius: '16px', padding: '2.5rem', textAlign: 'center',
-          maxWidth: '420px', width: '90%', boxShadow: 'var(--shadow-lg)',
+          borderRadius: '20px', padding: '2.5rem', textAlign: 'center',
+          maxWidth: '460px', width: '90%', boxShadow: 'var(--shadow-lg)',
         }}>
           <div style={{
-            width: '56px', height: '56px', borderRadius: '14px', margin: '0 auto 1rem',
-            background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            width: '60px', height: '60px', borderRadius: '16px', margin: '0 auto 1.25rem',
+            background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1))',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: '1px solid var(--primary-muted)',
           }}>
-            <Lock size={24} color="var(--primary)" />
+            <Sparkles size={28} color="var(--primary)" />
           </div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-            Subscription Required
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
+            Explore Futoracare AI OS
           </h2>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-            Access to the Futoracare portal requires an active subscription or free trial.
+            Experience the full hospital dashboard with live appointments, AI WhatsApp triage, and voice calls instantly in demo mode. No signup required.
           </p>
-          <button
-            onClick={() => setActiveView('landing')}
-            className="btn-primary"
-            style={{ width: '100%', justifyContent: 'center' }}
-          >
-            Start 7-Day Free Trial
-          </button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <button
+              onClick={() => startDemo()}
+              className="btn-primary"
+              style={{
+                width: '100%',
+                justifyContent: 'center',
+                padding: '0.8rem',
+                fontSize: '0.95rem',
+                background: 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
+              }}
+            >
+              ⚡ Start Free Demo (Instant Access)
+            </button>
+            <button
+              onClick={() => setActiveView('landing')}
+              className="btn-ghost"
+              style={{ width: '100%', justifyContent: 'center', fontSize: '0.875rem' }}
+            >
+              Back to Landing Page
+            </button>
+          </div>
         </div>
       </div>
     );
