@@ -21,6 +21,7 @@ interface UIState {
   isSubscriptionLocked: boolean;
   whatsappAiEnabled: boolean;
   subscriptionPlan: SubscriptionPlan;
+  isDemoMode: boolean;
 
   // ── Computed helpers ────────────────────────────────────────────────────────
   canAccess: (module: AppModule) => boolean;
@@ -35,10 +36,24 @@ interface UIState {
   setNotifOpen: (open: boolean) => void;
   loginAs: (user: StaffMember, tenantId: string, hasSubscription: boolean, isTrial?: boolean, plan?: SubscriptionPlan) => void;
   startTrial: (user: StaffMember, tenantId: string, plan: SubscriptionPlan) => void;
+  startDemo: () => void;
   completePaymentAndUnlock: () => void;
   simulateTrialExpiry: () => void;
   logout: () => void;
 }
+
+/** Demo Hospital Owner user */
+export const DEMO_USER: StaffMember = {
+  id: 'staff_demo_doctor',
+  tenantId: 't_demo_apex',
+  name: 'Dr. Rajesh Sharma',
+  email: 'dr.sharma@apexhealth.in',
+  phone: '+91 98765 43210',
+  role: 'hospital_owner',
+  isActive: true,
+  createdAt: '2026-01-15',
+  avatarInitials: 'RS',
+};
 
 /** Platform Super Admin user (Futoracare platform owner) */
 export const SUPER_ADMIN: StaffMember = {
@@ -74,6 +89,7 @@ export const useUIStore = create<UIState>()(
       isSubscriptionLocked: false,
       whatsappAiEnabled: true,
       subscriptionPlan: 'growth',
+      isDemoMode: false,
 
       canAccess: (module: AppModule): boolean => {
         const { activeUser, isAuthenticated, isSubscriptionLocked } = get();
@@ -106,6 +122,7 @@ export const useUIStore = create<UIState>()(
           whatsappAiEnabled: !isTrial, // LOCKED during trial!
           subscriptionPlan: plan,
           activeView: view,
+          isDemoMode: false,
         });
       },
 
@@ -125,6 +142,27 @@ export const useUIStore = create<UIState>()(
           whatsappAiEnabled: false, // 🔒 WHATSAPP AI LOCKED IN FREE TRIAL
           subscriptionPlan: plan,
           activeView: view,
+          isDemoMode: false,
+        });
+      },
+
+      startDemo: () => {
+        // Trigger seed endpoint in background
+        if (typeof window !== 'undefined') {
+          fetch('/api/demo/seed', { method: 'POST' }).catch(() => {});
+        }
+        set({
+          activeUser: DEMO_USER,
+          activeTenantId: 't_demo_apex',
+          isAuthenticated: true,
+          hasActiveSubscription: true,
+          isTrial: false,
+          trialEndsAt: null,
+          isSubscriptionLocked: false,
+          whatsappAiEnabled: true,
+          subscriptionPlan: 'enterprise',
+          activeView: 'dashboard',
+          isDemoMode: true,
         });
       },
 
@@ -152,6 +190,7 @@ export const useUIStore = create<UIState>()(
         isTrial: false,
         trialEndsAt: null,
         isSubscriptionLocked: false,
+        isDemoMode: false,
         activeView: 'landing',
       }),
     }),

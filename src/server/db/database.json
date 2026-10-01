@@ -1,85 +1,627 @@
 {
   "tenants": [
     {
-      "id": "t_1790777680524",
-      "name": "dsfefw",
-      "branch": "fefefewfewfw",
-      "city": "fewfewefw",
-      "beds": 100,
-      "doctors": 30,
-      "plan": "growth",
-      "status": "trial",
+      "id": "t_demo_apex",
+      "name": "Apex Multi-Specialty Hospital & Research Institute",
+      "branch": "South Delhi Medical Enclave",
+      "city": "New Delhi",
+      "beds": 250,
+      "doctors": 45,
+      "plan": "enterprise",
+      "status": "active",
       "owner": {
-        "id": "o_t_1790777680524",
-        "name": "fewefwfw",
-        "email": "fewfewf@ffdwvd.feww",
-        "phone": "321342342123",
-        "designation": "Managing Director"
+        "id": "o_t_demo_apex",
+        "name": "Dr. Rajesh Sharma",
+        "email": "dr.sharma@apexhealth.in",
+        "phone": "+91 98765 43210",
+        "designation": "Medical Director & Chief Cardiologist"
       },
-      "createdAt": "2026-09-30"
+      "createdAt": "2026-01-15"
     }
   ],
   "subscriptions": [
     {
-      "id": "sub_t_1790777680524",
-      "tenantId": "t_1790777680524",
-      "plan": "growth",
-      "status": "trial",
+      "id": "sub_demo_apex",
+      "tenantId": "t_demo_apex",
+      "plan": "enterprise",
+      "status": "active",
       "billingCycle": "monthly",
-      "pricePerCycle": 8000,
-      "startDate": "2026-09-30",
-      "nextRenewal": "2026-10-07",
-      "totalPaid": 0,
-      "isTrial": true,
-      "trialEndsAt": "2026-10-07",
+      "pricePerCycle": 10000,
+      "startDate": "2026-01-15",
+      "nextRenewal": "2026-11-15",
+      "totalPaid": 80000,
+      "isTrial": false,
       "autopayEnabled": true,
       "autopayStatus": "active",
       "autopayMethod": "upi",
-      "whatsappAiEnabled": false,
+      "whatsappAiEnabled": true,
       "transactions": [
         {
-          "id": "txn_1790777680537_xkuww",
-          "amount": 0,
+          "id": "txn_demo_1",
+          "amount": 10000,
           "method": "upi",
           "status": "success",
-          "txnRef": "MANDATE_AUTH_1790777680537",
-          "date": "2026-09-30",
-          "plan": "growth"
+          "txnRef": "UPI/20260901/APEX998",
+          "date": "2026-09-01",
+          "plan": "enterprise"
         }
       ]
     }
   ],
   "staffMembers": [
     {
-      "id": "sa_madhur",
-      "tenantId": "platform",
-      "name": "Madhur",
-      "email": "madhur@futoragroup.com",
-      "phone": "+91 99999 88888",
-      "role": "super_admin",
-      "isActive": true,
-      "createdAt": "2024-01-01",
-      "avatarInitials": "MF"
-    },
-    {
-      "id": "staff_owner_t_1790777680524",
-      "tenantId": "t_1790777680524",
-      "name": "fewefwfw",
-      "email": "fewfewf@ffdwvd.feww",
-      "phone": "321342342123",
+      "id": "staff_demo_doctor",
+      "tenantId": "t_demo_apex",
+      "name": "Dr. Rajesh Sharma",
+      "email": "dr.sharma@apexhealth.in",
+      "phone": "+91 98765 43210",
       "role": "hospital_owner",
       "isActive": true,
-      "createdAt": "2026-09-30",
-      "avatarInitials": "F"
+      "createdAt": "2026-01-15",
+      "avatarInitials": "RS"
+    },
+    {
+      "id": "staff_demo_doc_2",
+      "tenantId": "t_demo_apex",
+      "name": "Dr. Priya Sundaram",
+      "email": "priya.sundaram@apexhealth.in",
+      "phone": "+91 98111 22334",
+      "role": "doctor",
+      "department": "Gynecology",
+      "isActive": true,
+      "createdAt": "2026-01-16",
+      "avatarInitials": "PS"
+    },
+    {
+      "id": "staff_demo_doc_3",
+      "tenantId": "t_demo_apex",
+      "name": "Dr. Vikram Mehra",
+      "email": "vikram.mehra@apexhealth.in",
+      "phone": "+91 98222 33445",
+      "role": "doctor",
+      "department": "Pulmonology",
+      "isActive": true,
+      "createdAt": "2026-01-18",
+      "avatarInitials": "VM"
     }
   ],
-  "patients": [],
-  "appointments": [],
-  "whatsappThreads": [],
-  "voiceCalls": [],
-  "labReports": [],
-  "feedback": [],
-  "workflows": [],
+  "patients": [
+    {
+      "id": "pat_demo_1",
+      "tenantId": "t_demo_apex",
+      "name": "Aarav Sharma",
+      "age": 34,
+      "gender": "Male",
+      "bloodGroup": "O+",
+      "phone": "+91 98101 23456",
+      "email": "aarav.sharma@gmail.com",
+      "riskLevel": "low",
+      "diagnosis": "Seasonal Allergic Rhinitis & Bronchospasm",
+      "lastVisit": "2026-10-01",
+      "consultations": 3,
+      "tags": [
+        "Allergy",
+        "OPD",
+        "Inhaler"
+      ],
+      "vitals": {
+        "bp": "120/80",
+        "pulse": 72,
+        "spo2": 99,
+        "temp": "98.4°F"
+      }
+    },
+    {
+      "id": "pat_demo_2",
+      "tenantId": "t_demo_apex",
+      "name": "Sunita Verma",
+      "age": 58,
+      "gender": "Female",
+      "bloodGroup": "B+",
+      "phone": "+91 98202 34567",
+      "email": "sunita.v@yahoo.co.in",
+      "riskLevel": "high",
+      "diagnosis": "Type 2 Diabetes Mellitus & Stage-2 HTN",
+      "lastVisit": "2026-10-01",
+      "consultations": 8,
+      "tags": [
+        "Diabetic",
+        "Hypertension",
+        "Cardio Watch"
+      ],
+      "vitals": {
+        "bp": "148/92",
+        "pulse": 84,
+        "spo2": 97,
+        "temp": "98.6°F"
+      }
+    },
+    {
+      "id": "pat_demo_3",
+      "tenantId": "t_demo_apex",
+      "name": "Ramesh Kulkarni",
+      "age": 67,
+      "gender": "Male",
+      "bloodGroup": "A+",
+      "phone": "+91 98303 45678",
+      "email": "rkulkarni67@outlook.com",
+      "riskLevel": "critical",
+      "diagnosis": "Post-CABG Stent Angioplasty & CAD",
+      "lastVisit": "2026-10-01",
+      "consultations": 12,
+      "tags": [
+        "Post-Op",
+        "Cardiac",
+        "Critical Alert"
+      ],
+      "vitals": {
+        "bp": "155/96",
+        "pulse": 92,
+        "spo2": 94,
+        "temp": "99.1°F"
+      }
+    },
+    {
+      "id": "pat_demo_4",
+      "tenantId": "t_demo_apex",
+      "name": "Meera Nair",
+      "age": 29,
+      "gender": "Female",
+      "bloodGroup": "AB+",
+      "phone": "+91 98404 56789",
+      "email": "meera.nair@gmail.com",
+      "riskLevel": "low",
+      "diagnosis": "Antenatal Care – 24 Weeks Gestation",
+      "lastVisit": "2026-10-01",
+      "consultations": 5,
+      "tags": [
+        "Maternity",
+        "ANC",
+        "Ultrasound"
+      ],
+      "vitals": {
+        "bp": "115/75",
+        "pulse": 76,
+        "spo2": 99,
+        "temp": "98.2°F"
+      }
+    },
+    {
+      "id": "pat_demo_5",
+      "tenantId": "t_demo_apex",
+      "name": "Rohan Gupta",
+      "age": 42,
+      "gender": "Male",
+      "bloodGroup": "B-",
+      "phone": "+91 98505 67890",
+      "email": "rohan.g@techcorp.in",
+      "riskLevel": "medium",
+      "diagnosis": "Lumbar Disc Protrusion (L4-L5)",
+      "lastVisit": "2026-10-01",
+      "consultations": 4,
+      "tags": [
+        "Ortho",
+        "Physiotherapy",
+        "Teleconsult"
+      ],
+      "vitals": {
+        "bp": "128/82",
+        "pulse": 74,
+        "spo2": 98,
+        "temp": "98.4°F"
+      }
+    }
+  ],
+  "appointments": [
+    {
+      "id": "apt_demo_1",
+      "tenantId": "t_demo_apex",
+      "patientId": "pat_demo_2",
+      "patientName": "Sunita Verma",
+      "doctorName": "Dr. Rajesh Sharma",
+      "department": "Cardiology",
+      "date": "2026-10-01",
+      "time": "10:30 AM",
+      "status": "confirmed",
+      "type": "in-person",
+      "notes": "Monthly diabetic hypertension routine review"
+    },
+    {
+      "id": "apt_demo_2",
+      "tenantId": "t_demo_apex",
+      "patientId": "pat_demo_1",
+      "patientName": "Aarav Sharma",
+      "doctorName": "Dr. Vikram Mehra",
+      "department": "Pulmonology",
+      "date": "2026-10-01",
+      "time": "11:15 AM",
+      "status": "confirmed",
+      "type": "in-person",
+      "notes": "Inhaler response follow-up and spirometry review"
+    },
+    {
+      "id": "apt_demo_3",
+      "tenantId": "t_demo_apex",
+      "patientId": "pat_demo_3",
+      "patientName": "Ramesh Kulkarni",
+      "doctorName": "Dr. Rajesh Sharma",
+      "department": "Cardiology",
+      "date": "2026-10-01",
+      "time": "02:00 PM",
+      "status": "pending",
+      "type": "in-person",
+      "notes": "Post-op stent patency evaluation and ECG"
+    },
+    {
+      "id": "apt_demo_4",
+      "tenantId": "t_demo_apex",
+      "patientId": "pat_demo_4",
+      "patientName": "Meera Nair",
+      "doctorName": "Dr. Priya Sundaram",
+      "department": "Gynecology",
+      "date": "2026-10-01",
+      "time": "03:30 PM",
+      "status": "completed",
+      "type": "in-person",
+      "notes": "Routine second-trimester anomaly scan review"
+    },
+    {
+      "id": "apt_demo_5",
+      "tenantId": "t_demo_apex",
+      "patientId": "pat_demo_5",
+      "patientName": "Rohan Gupta",
+      "doctorName": "Dr. Rajesh Sharma",
+      "department": "Orthopedics",
+      "date": "2026-10-01",
+      "time": "04:30 PM",
+      "status": "confirmed",
+      "type": "teleconsult",
+      "notes": "Spine rehab progress check via WhatsApp video"
+    },
+    {
+      "id": "apt_demo_6",
+      "tenantId": "t_demo_apex",
+      "patientId": "pat_demo_3",
+      "patientName": "Ramesh Kulkarni",
+      "doctorName": "Dr. Rajesh Sharma",
+      "department": "Cardiology",
+      "date": "2026-10-01",
+      "time": "09:00 AM",
+      "status": "missed",
+      "type": "in-person",
+      "notes": "Patient reported delayed due to metro disruption"
+    }
+  ],
+  "whatsappThreads": [
+    {
+      "id": "wh_demo_1",
+      "tenantId": "t_demo_apex",
+      "patientName": "Sunita Verma",
+      "phone": "+91 98202 34567",
+      "lastMessage": "Dr. Sharma’s AI: Scheduled fasting lab check for tomorrow 8 AM.",
+      "lastTime": "10:24 AM",
+      "unread": 0,
+      "status": "ai-handling",
+      "messages": [
+        {
+          "id": "m_1",
+          "role": "patient",
+          "content": "Namaste Doctor, my morning fasting sugar came 185 mg/dL. Should I increase my Glycomet?",
+          "timestamp": "10:20 AM"
+        },
+        {
+          "id": "m_2",
+          "role": "ai",
+          "content": "Hello Sunita ji! Futoracare AI assistant here. 185 mg/dL is higher than your target fasting level (<130 mg/dL). Please do not alter medication dosage without doctor review. I have flagged this to Dr. Rajesh Sharma and scheduled a fasting lab check for tomorrow 8:00 AM.",
+          "timestamp": "10:22 AM"
+        },
+        {
+          "id": "m_3",
+          "role": "patient",
+          "content": "Thank you beti, I will follow the instructions.",
+          "timestamp": "10:24 AM"
+        }
+      ]
+    },
+    {
+      "id": "wh_demo_2",
+      "tenantId": "t_demo_apex",
+      "patientName": "Meera Nair",
+      "phone": "+91 98404 56789",
+      "lastMessage": "AI Assistant: Ultrasound appointment confirmed for today at 3:30 PM.",
+      "lastTime": "09:45 AM",
+      "unread": 0,
+      "status": "resolved",
+      "messages": [
+        {
+          "id": "m_4",
+          "role": "patient",
+          "content": "Hi, can I confirm if my anomaly scan with Dr. Priya Sundaram is on time today?",
+          "timestamp": "09:40 AM"
+        },
+        {
+          "id": "m_5",
+          "role": "ai",
+          "content": "Hello Meera! Yes, your appointment with Dr. Priya Sundaram is confirmed for today at 3:30 PM in OPD Room 204. Please arrive 15 minutes early and ensure 1 liter water intake 1 hour prior.",
+          "timestamp": "09:45 AM"
+        }
+      ]
+    },
+    {
+      "id": "wh_demo_3",
+      "tenantId": "t_demo_apex",
+      "patientName": "Rohan Gupta",
+      "phone": "+91 98505 67890",
+      "lastMessage": "Rohan: Can we switch my consultation to teleconsult?",
+      "lastTime": "11:05 AM",
+      "unread": 1,
+      "status": "ai-handling",
+      "messages": [
+        {
+          "id": "m_6",
+          "role": "patient",
+          "content": "Can we switch my 4:30 PM consultation to teleconsult? Having back spasms and travel will be difficult.",
+          "timestamp": "11:05 AM"
+        },
+        {
+          "id": "m_7",
+          "role": "ai",
+          "content": "Understood Mr. Gupta. I have automatically converted your appointment to a secure HD Teleconsult session at 4:30 PM today. A video link will be sent to your WhatsApp 10 minutes prior.",
+          "timestamp": "11:06 AM"
+        }
+      ]
+    }
+  ],
+  "voiceCalls": [
+    {
+      "id": "vc_demo_1",
+      "tenantId": "t_demo_apex",
+      "patientName": "Ramesh Kulkarni",
+      "phone": "+91 98303 45678",
+      "duration": "3m 15s",
+      "status": "completed",
+      "aiHandled": true,
+      "sentiment": "positive",
+      "date": "2026-10-01",
+      "time": "10:15 AM",
+      "purpose": "Post-CABG Stent Discharge Follow-up",
+      "transcript": [
+        {
+          "speaker": "AI",
+          "text": "Namaste Mr. Kulkarni, this is Futoracare AI calling from Apex Heart Institute on behalf of Dr. Rajesh Sharma. How are you feeling today?",
+          "timestamp": "00:05"
+        },
+        {
+          "speaker": "Patient",
+          "text": "Namaste. I am feeling much better today. The chest heaviness is gone completely.",
+          "timestamp": "00:22"
+        },
+        {
+          "speaker": "AI",
+          "text": "That is wonderful to hear. Are you taking your blood thinner and statin medications on schedule?",
+          "timestamp": "00:40"
+        },
+        {
+          "speaker": "Patient",
+          "text": "Yes, taking both morning and night as instructed.",
+          "timestamp": "00:58"
+        },
+        {
+          "speaker": "AI",
+          "text": "Excellent. Your follow-up appointment with Dr. Sharma is scheduled for today at 2:00 PM. See you then!",
+          "timestamp": "01:15"
+        }
+      ]
+    },
+    {
+      "id": "vc_demo_2",
+      "tenantId": "t_demo_apex",
+      "patientName": "Sunita Verma",
+      "phone": "+91 98202 34567",
+      "duration": "1m 45s",
+      "status": "completed",
+      "aiHandled": true,
+      "sentiment": "neutral",
+      "date": "2026-10-01",
+      "time": "09:30 AM",
+      "purpose": "Daily Blood Pressure Check",
+      "transcript": [
+        {
+          "speaker": "AI",
+          "text": "Good morning Mrs. Verma, automated health check-in from Apex Hospital. What was your systolic reading this morning?",
+          "timestamp": "00:04"
+        },
+        {
+          "speaker": "Patient",
+          "text": "It was 148 over 92.",
+          "timestamp": "00:15"
+        },
+        {
+          "speaker": "AI",
+          "text": "Recorded 148/92 in your electronic chart. Dr. Sharma has been notified to review during your visit today.",
+          "timestamp": "00:30"
+        }
+      ]
+    }
+  ],
+  "labReports": [
+    {
+      "id": "lr_demo_1",
+      "tenantId": "t_demo_apex",
+      "patientName": "Ramesh Kulkarni",
+      "patientId": "pat_demo_3",
+      "testName": "Cardiac Biomarkers & Troponin-I",
+      "date": "2026-10-01",
+      "status": "critical",
+      "dispatched": false,
+      "results": [
+        {
+          "parameter": "High-Sensitivity Troponin-I",
+          "value": "0.14",
+          "unit": "ng/mL",
+          "referenceRange": "< 0.04",
+          "flag": "HH"
+        },
+        {
+          "parameter": "CK-MB",
+          "value": "32",
+          "unit": "U/L",
+          "referenceRange": "0 - 25",
+          "flag": "H"
+        },
+        {
+          "parameter": "BNP (Brain Natriuretic Peptide)",
+          "value": "380",
+          "unit": "pg/mL",
+          "referenceRange": "< 100",
+          "flag": "HH"
+        }
+      ],
+      "aiSummary": "CRITICAL ALERT: Significant elevation in hs-cTnI (0.14 ng/mL) and BNP. Findings indicate acute myocardial stress. Immediate bedside review by Cardiology on-call recommended."
+    },
+    {
+      "id": "lr_demo_2",
+      "tenantId": "t_demo_apex",
+      "patientName": "Sunita Verma",
+      "patientId": "pat_demo_2",
+      "testName": "Comprehensive Diabetic & Lipid Profile",
+      "date": "2026-10-01",
+      "status": "abnormal",
+      "dispatched": true,
+      "results": [
+        {
+          "parameter": "HbA1c",
+          "value": "8.4",
+          "unit": "%",
+          "referenceRange": "4.0 - 5.6",
+          "flag": "H"
+        },
+        {
+          "parameter": "Fasting Blood Glucose",
+          "value": "185",
+          "unit": "mg/dL",
+          "referenceRange": "70 - 100",
+          "flag": "H"
+        },
+        {
+          "parameter": "Total Cholesterol",
+          "value": "245",
+          "unit": "mg/dL",
+          "referenceRange": "< 200",
+          "flag": "H"
+        },
+        {
+          "parameter": "Triglycerides",
+          "value": "210",
+          "unit": "mg/dL",
+          "referenceRange": "< 150",
+          "flag": "H"
+        }
+      ],
+      "aiSummary": "Suboptimal glycemic control (HbA1c 8.4%) with concomitant mixed dyslipidemia. Insulin sensitizer dose titration and dietary lifestyle counseling advised."
+    },
+    {
+      "id": "lr_demo_3",
+      "tenantId": "t_demo_apex",
+      "patientName": "Meera Nair",
+      "patientId": "pat_demo_4",
+      "testName": "Complete Blood Count (CBC) Obstetric",
+      "date": "2026-10-01",
+      "status": "normal",
+      "dispatched": true,
+      "results": [
+        {
+          "parameter": "Hemoglobin",
+          "value": "12.2",
+          "unit": "g/dL",
+          "referenceRange": "11.5 - 15.0"
+        },
+        {
+          "parameter": "Total WBC Count",
+          "value": "8,400",
+          "unit": "/cumm",
+          "referenceRange": "4,000 - 11,000"
+        },
+        {
+          "parameter": "Platelet Count",
+          "value": "245,000",
+          "unit": "/cumm",
+          "referenceRange": "150,000 - 450,000"
+        }
+      ],
+      "aiSummary": "Normal maternal hematological parameters. No signs of anemia or infection."
+    }
+  ],
+  "feedback": [
+    {
+      "id": "fb_demo_1",
+      "tenantId": "t_demo_apex",
+      "patientName": "Aarav Sharma",
+      "rating": 5,
+      "emotion": "delighted",
+      "comment": "The WhatsApp bot answered all my doubts in 2 seconds and gave me clear directions. Apex Hospital is light years ahead of other hospitals!",
+      "date": "2026-10-01",
+      "department": "Pulmonology",
+      "autoApologyDispatched": false,
+      "sentiment": "positive"
+    },
+    {
+      "id": "fb_demo_2",
+      "tenantId": "t_demo_apex",
+      "patientName": "Meera Nair",
+      "rating": 5,
+      "emotion": "satisfied",
+      "comment": "Dr. Priya Sundaram is wonderful and patient care coordination is seamless.",
+      "date": "2026-10-01",
+      "department": "Gynecology",
+      "autoApologyDispatched": false,
+      "sentiment": "positive"
+    },
+    {
+      "id": "fb_demo_3",
+      "tenantId": "t_demo_apex",
+      "patientName": "Rohan Gupta",
+      "rating": 4,
+      "emotion": "satisfied",
+      "comment": "The teleconsult switch through WhatsApp was super fast. Very convenient.",
+      "date": "2026-10-01",
+      "department": "Orthopedics",
+      "autoApologyDispatched": false,
+      "sentiment": "positive"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "wf_demo_1",
+      "tenantId": "t_demo_apex",
+      "workflowName": "Post-Discharge 48h Autonomous Voice Follow-up",
+      "trigger": "Patient Discharge Flag",
+      "status": "running",
+      "duration": "1m 12s",
+      "nodes": 6,
+      "timestamp": "Today, 10:00 AM"
+    },
+    {
+      "id": "wf_demo_2",
+      "tenantId": "t_demo_apex",
+      "workflowName": "Critical Lab Biomarker Emergency Escalation",
+      "trigger": "Troponin / Potassium Flag",
+      "status": "success",
+      "duration": "12s",
+      "nodes": 4,
+      "timestamp": "Today, 09:15 AM"
+    },
+    {
+      "id": "wf_demo_3",
+      "tenantId": "t_demo_apex",
+      "workflowName": "24h Pre-Op WhatsApp Fasting Instructions & Consent",
+      "trigger": "Surgical Booking",
+      "status": "success",
+      "duration": "45s",
+      "nodes": 5,
+      "timestamp": "Today, 08:30 AM"
+    }
+  ],
   "auditLogs": [],
   "paymentTransactions": []
 }
